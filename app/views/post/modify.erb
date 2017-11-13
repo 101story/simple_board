@@ -1,0 +1,21 @@
+<a href='/post/index'>[글목록]</a><br><br>
+<form action="/post/update/<%=@post.id %>">
+<div class="card">
+<div class="card-body">
+  <div class="form-group">
+  <input type="hidden" name="id" readonly="readonly" value='<%= @post.id %> '>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">title</label>
+    <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value='<%= @post.title %>'>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">content</label>
+    <input type="text" name="content" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value='<%= @post.content %>'>
+  </div> 
+</div>
+  <button type="submit" class="btn btn-primary">수정하기</button>
+</div>
+<br>
+
+

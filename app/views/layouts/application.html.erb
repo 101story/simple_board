@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<a href='/post/index'>[글목록]</a>
+<a href='/user/index'>[사용자목록]</a>
+
+<!--% if @session_email == nil %--> 
+<% if session[:user_id] %>
+  <!--%=@session_email %> 님 반갑습니다.-->
+  <a href='/user/logout'>[로그아웃]</a>
+<% else %>
+  <a href='/user/login'>[로그인]</a>
+  <a href='/user/new'>[가입]</a>
+<% end %>
+
+
+
+<p><%=flash[:notice]%> </p>
+
+<%= yield %>
+
+</body>
+</html>

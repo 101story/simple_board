@@ -1,0 +1,6 @@
+<h2>Post List</h2>
+<a href='/post/new'>[글쓰기]</a>
+<% @posts.each do |po| %>
+<p><%=po.id %> 번째 글: <%=po.title %> <a href='/post/show/<%= po.id %>'>[상세]</a></p>
+--------------<br>
+<% end %>

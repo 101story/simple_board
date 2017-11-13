@@ -1,0 +1,22 @@
+<div class="card">
+<div class="card-body">
+  아이디 : <%= @post.id %> <br>
+  타이틀 : <%= @post.title %> <br>
+  작성자 : <%= @user_email%> <br>
+  내용 : <%= @post.content %> <br>
+  작성일 : <%= @post.created_at.strftime('%D') %> <br>  
+  수정일 : <%= @post.updated_at.strftime('%D') %> <br>  
+</div>
+<a href='/post/modify/<%=@post.id %>'>[수정]</a>
+<a href='/post/destory/<%=@post.id %>'>[삭제]</a>
+</div>
+<!-- 댓글 다는 폼 -->
+<form action="/post/create_comment">
+  <input type="hidden" name="post_id" value="<%=@post.id%>">
+  <input type="text" name="comment">
+  <input type="submit" value="댓글">
+</form>
+
+<% @comments.each do |c| %>
+<p><%=c.content %></p>
+<% end %>
