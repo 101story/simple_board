@@ -1,6 +1,6 @@
-#User, Post
+# User, Post
 
-# Post 모델 
+## Post 모델 
 Integer, user_id
 String, title
 String, content
