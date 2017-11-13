@@ -1,11 +1,11 @@
-User, Post
+#User, Post
 
-Post 모델 
+# Post 모델 
 Integer, user_id
 String, title
 String, content
 
-User 모델
+## User 모델
 String email
 String password
 
