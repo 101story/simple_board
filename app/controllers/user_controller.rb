@@ -1,9 +1,9 @@
 class UserController < ApplicationController
   def index
     @users = User.all
-    if session[:user_id]
-      @session_email = User.find(session[:user_id]).email
-    end
+    # if session[:user_id]
+    #   @session_email = User.find(session[:user_id]).email
+    # end
   end
 
   def new
@@ -40,19 +40,23 @@ class UserController < ApplicationController
             
             redirect_to '/post/index'
         else
-          flash[:notice] = "로그인에 실패 하였습니다."
-          redirect_to '/user/login'
+            flash[:alert] = "비밀번호를 확인해 주세요."
+            redirect_to '/user/login' 
         end
     else
-      flash[:notice] = "로그인에 실패 하였습니다."
-      redirect_to '/user/login'
+      flash[:alert] = "아이디가 없습니다."
+      redirect_to '/user/login'  
     end 
+    
   end
   
   def logout        
     session.clear
     #session.delete(key)
+    flash[:notice] = "로그아웃 되었습니다."
     redirect_to '/post/index'
   end
 
+  def note
+  end
 end

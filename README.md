@@ -10,25 +10,37 @@ String email
 String password
 
 ## post contorller
-post#index
-post#new
-post#create
-post#show
-post#modify
-post#update
+post#index,
+post#new,
+post#create,
+post#show,
+post#modify,
+post#update,
 post#destory
 
 ## user controller
-user#index
-user#new
-user#create
-user#show
-user#login
+user#index,
+user#new,
+user#create,
+user#show,
+user#login,
 user#login_process 
 
-조건)
-user:post 
+### 조건
+* user:post 
     1:N 
     한명의 User 가 N 여러 Post 를 가진다. 
     Post 는 특정한 User 에 속한다. 
+
+* post:command
+    1:N
     
+## Post method 
+* Authenticity token
+
+## View
+* form tag 사용
+* bootstrap navbar 
+* partial
+
+## scaffold

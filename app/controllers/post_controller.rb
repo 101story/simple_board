@@ -26,7 +26,7 @@ class PostController < ApplicationController
     id = params[:id]
     @post = Post.find(id)
     
-    if @post.user_id == 0
+    if @post.user_id == 0 || !@post.user_id
       @user_email = "anonymous"
     else
       @user_email = @post.user.email
