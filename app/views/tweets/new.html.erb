@@ -1,0 +1,6 @@
+<h1>Tweets</h1>
+<form action="/tweets/create" method="post">
+    <input type="text" name="content">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    <input type="submit">
+</form>

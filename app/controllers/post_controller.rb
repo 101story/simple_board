@@ -1,4 +1,7 @@
 class PostController < ApplicationController
+  
+  before_action(:find_post, only: [:show, :modify, :destory])
+  
   def index
     @posts = Post.all
     # if session[:user_id]
@@ -23,30 +26,23 @@ class PostController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    @post = Post.find(id)
-    
     if @post.user_id == 0 || !@post.user_id
       @user_email = "anonymous"
     else
       @user_email = @post.user.email
     end
-    
     @comments = @post.comments 
     
   end
   
   def modify
-    id = params[:id]
-    @post = Post.find(id)
   end
   
   def update
-    id = params[:id]
     title = params[:title]
     content = params[:content]
-    post = Post.find(id)
-    post.update(
+    
+    @post.update(
       title: title,
       content: content
     )
@@ -54,9 +50,7 @@ class PostController < ApplicationController
   end
   
   def destory
-    id = params[:id]
-    post = Post.find(id)
-    post.destroy
+    @post.destroy
     
     redirect_to '/post/index'
   end
@@ -75,6 +69,11 @@ class PostController < ApplicationController
       content: @comment
     )
     redirect_to :back
+  end
+
+  private
+  def find_post 
+    @post = Post.find(params[:id])
   end
 
 end

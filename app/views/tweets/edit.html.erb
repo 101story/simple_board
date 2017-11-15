@@ -1,0 +1,7 @@
+<h1>Tweets#edit</h1>
+<%= form_tag("/tweets/#{@tweet.id}", method:"put") do %>
+    <%= label_tag(:content, "내용: ") %> 
+    <%= text_field_tag(:content, @tweet.content)%>
+    <%= submit_tag("수정하기") %>
+<% end %>
+

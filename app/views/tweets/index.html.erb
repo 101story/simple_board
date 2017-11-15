@@ -1,0 +1,14 @@
+<h1>Tweets#index</h1>
+<%=link_to("글목록", "/post/index", method:"get")%>
+<% @tweets.each do |tweet| %>
+    <%=tweet.content%><br>
+    <a href="/tweets/<%=tweet.id%>/edit">[수정]</a>
+    <a href="/tweets/<%=tweet.id%>/destory">[삭제]</a>
+    <%=link_to("[삭제]", "/tweets/#{tweet.id}", method:"delete")%>
+
+    <br><br>
+<% end %>
+
+<a href="/tweets/new">새로운 트윗 만들기</a>
+
+
